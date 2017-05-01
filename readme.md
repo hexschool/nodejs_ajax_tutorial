@@ -32,7 +32,7 @@
 登入一個已存在的帳號。
 
 - Method: `POST`
-- URL: `https://hexschool-tutorial.herokuapp.com/api/signup`
+- URL: `https://hexschool-tutorial.herokuapp.com/api/signip`
 - Success Response:
   ```
   {
