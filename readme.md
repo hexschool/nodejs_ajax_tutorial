@@ -9,6 +9,13 @@
 
 - Method: `POST`
 - URL: `https://hexschool-tutorial.herokuapp.com/api/signup`
+- Data:
+  ```
+  {
+    email: 'lovef2e@hexschool.com',
+    password: '12345678'
+  }
+  ```
 - Success Response:
   ```
   {
@@ -33,6 +40,13 @@
 
 - Method: `POST`
 - URL: `https://hexschool-tutorial.herokuapp.com/api/signin`
+- Data:
+  ```
+  {
+    email: 'lovef2e@hexschool.com',
+    password: '12345678'
+  }
+  ```
 - Success Response:
   ```
   {
