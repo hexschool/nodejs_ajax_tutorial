@@ -7,11 +7,18 @@ let users = [
     email: 'lovef2e@hexschool.com',
     password: '12345678'
   }
-]
+];
+
+const Response = function() {
+  this.success = false;
+  this.result = {};
+  this.message = '';
+}
 
 /* GET home page. */
 router.post('/signup', function(req, res, next) {
   let data = req.body;
+  let response = new Response();
   let emailCheck;
   let compare = [];
   if (data.email) {
@@ -24,14 +31,19 @@ router.post('/signup', function(req, res, next) {
   let passwordCheck = data.password;
 
   if (compare.length) { // 如果有相同帳號
-    res.send('此帳號已被使用');
+    response.message = '此帳號已被使用';
+    res.send(response);
   } else if(!emailCheck){
-    res.send('Email 格式不正確');
+    response.message = 'Email 格式不正確';
+    res.send(response);
   } else if (!passwordCheck) {
-    res.send('密碼不得為空');
+    response.message = '密碼不得為空';
+    res.send(response);
   } else {
     users.push(data);
-    res.send('帳號註冊成功');
+    response.message = '帳號註冊成功';
+    response.success = true;
+    res.send(response);
   }
   
   console.log(users)
@@ -40,6 +52,7 @@ router.post('/signup', function(req, res, next) {
 
 router.post('/signin', function(req, res, next) {
   let data = req.body;
+  let response = new Response();
   let emailCheck;
   let compare = false;
   let passwordCheck = data.password;
@@ -56,13 +69,18 @@ router.post('/signin', function(req, res, next) {
 
   console.log(compare)
   if (!emailCheck) {
-    res.send('Email 格式不正確');
+    response.message = 'Email 格式不正確'
+    res.send(response);
   } else if (!passwordCheck) {
-    res.send('密碼不得為空');
+    response.message = '密碼不得為空'
+    res.send(response);
   } else if(!compare) {
-    res.send('此帳號不存在或帳號密碼錯誤');
+    response.message = '此帳號不存在或帳號密碼錯誤'
+    res.send(response);
   } else {
-    res.send('登入成功');
+    response.message = '登入成功';
+    response.success = true;
+    res.send(response);
   }
   res.end();
 });
