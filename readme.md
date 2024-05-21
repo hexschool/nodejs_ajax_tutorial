@@ -8,7 +8,7 @@
 新增一個帳號。
 
 - Method: `POST`
-- URL: `https://hex-escape-room.herokuapp.com/api/user/signup`
+- URL: `https://escape-room.hexschool.io/api/user/signup`
 - Data:
   ```
   {
@@ -39,7 +39,7 @@
 登入一個已存在的帳號。
 
 - Method: `POST`
-- URL: `https://hex-escape-room.herokuapp.com/api/user/signin`
+- URL: `https://escape-room.hexschool.io/api/user/signin`
 - Data:
   ```
   {
